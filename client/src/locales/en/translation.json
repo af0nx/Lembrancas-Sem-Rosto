@@ -1,0 +1,20 @@
+{
+  "headline": "Want the best deals?",
+  "subheadline": "Subscribe to our newsletter.",
+  "emailPlaceholder": "Enter your email",
+  "subscribeButton": "Subscribe",
+  "privacyNotice": "We care about your information. Read our",
+  "terms": "terms and conditions",
+  "support": "Support",
+  "faq": "FAQ",
+  "trackOrder": "Track Order",
+  "shipping": "Shipping",
+  "contact": "Contact",
+  "about": "About",
+  "legal": "Legal",
+  "termsConditions": "Terms and Conditions",
+  "rewardsProgram": "Rewards Program",
+  "freeShippingMessage": "FREE SHIPPING TO {{location}} ON ALL ORDERS OVER 35€",
+  "illustration": "Illustration",
+  "products": "Products"
+}

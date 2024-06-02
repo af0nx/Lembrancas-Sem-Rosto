@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const HeadNavbar = () => {
+  const { t } = useTranslation();
   const [location, setLocation] = useState('your location');
 
   useEffect(() => {
@@ -19,8 +21,8 @@ const HeadNavbar = () => {
   }, []);
 
   return (
-    <div className="bg-gray-50 text-black text-center  text-sm p-2">
-      ENVIO GRÁTIS PARA {location.toUpperCase()} EM TODAS AS ENCOMENDAS ACIMA DE 25€
+    <div className="bg-gray-50 text-black text-center text-sm p-2">
+      {t('freeShippingMessage', { location: location.toUpperCase() })}
     </div>
   );
 };
