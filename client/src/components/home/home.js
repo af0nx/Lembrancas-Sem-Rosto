@@ -1,7 +1,6 @@
 import React from 'react';
 import Hero from '../home/Hero';
 import Footer from '../common/Footer';
-import HeadNavbar from '../common/HeadNavbar';
 import Navbar from '../common/Navbar';
 import Newsletter from '../common/Newsletter';
 import SEO from '../SEO/seohome';

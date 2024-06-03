@@ -1,20 +1,30 @@
 const express = require('express');
-const app = express();
-const PORT = process.env.PORT || 5000;
+const cors = require('cors');
+const connectDB = require('./db.js');
+const authRoutes = require('./routes/router'); // Importe as rotas de autenticação
+const bodyParser = require('body-parser');
+require('dotenv').config();
 
-// Middleware para parsear JSON
+
+const app = express();
+app.use(cors());
 app.use(express.json());
 
-// Rota básica
-app.get('/', (req, res) => {
-  res.send('Hello World from the backend!');
-});
 
-// Rota de exemplo para dados
-app.get('/api/data', (req, res) => {
-  res.json({ message: 'Esta é uma rota de API de exemplo!' });
-});
+app.use(express.json()); // Middleware para interpretar o corpo da requisição como JSON
 
-app.listen(PORT, () => {
-  console.log(`Servidor está rodando na porta ${PORT}`);
+
+
+connectDB();
+
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// Roteamento
+app.use('/auth', authRoutes); 
+
+const port = process.env.PORT || 3000;
+const server = app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
 });
