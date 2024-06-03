@@ -53,7 +53,6 @@ const Register = () => {
               <img className="w-auto h-7 sm:h-8" src={logoImg} alt=""></img>
           </div>
   
-          <h3 className="mt-3 text-xl font-medium text-center text-gray-600 dark:text-gray-200">Bem-Vindo a Conetado</h3>
   
           <p className="mt-1 text-center text-gray-600 dark:text-gray-200">Registro </p>
   

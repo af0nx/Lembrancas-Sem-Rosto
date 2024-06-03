@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import logo from "../images/logo.png";
 
 const Dashboards = () => {
   const navigate = useNavigate();
@@ -51,18 +52,18 @@ const Dashboards = () => {
   }
 
   return (
-    <div className="bg-gray-900">
-      <nav className=" bg-gray-900">
+    <div className="bg-gray-50">
+      <nav className=" bg-gray-50">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <a className="flex items-center space-x-3 rtl:space-x-reverse">
-            <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
-              Conectado
-            </span>
+            <a href="/">
+              <img src={logo} alt="Logo" className="h-12 mb-4" />
+            </a>
           </a>
           <button
             data-collapse-toggle="navbar-default"
             type="button"
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-black rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
             aria-controls="navbar-default"
             aria-expanded="false"
           >
@@ -85,19 +86,11 @@ const Dashboards = () => {
           </button>
           <div className="hidden w-full md:block md:w-auto" id="navbar-default">
             <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
-              <li>
-                <a
-                  href="/"
-                  className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
-                  aria-current="page"
-                >
-                  Home
-                </a>
-              </li>
+
               <li>
                 <a
                   href="/dashboard"
-                  className="block py-2 px-3 text-gray-50 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  className="block py-2 px-3 text-black rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-black md:p-0 dark:text-black md:dark:hover:text-blackdark:hover:bg-gray-700 dark:hover:text-black md:dark:hover:bg-transparent"
                 >
                   Dashboard
                 </a>
@@ -105,21 +98,28 @@ const Dashboards = () => {
               <li>
                 <a
                   href="/dashboard/servicosai"
-                  className="block py-2 px-3 text-gray-50  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  className="block py-2 px-3 text-black  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-black md:p-0 dark:text-black md:dark:hover:text-black dark:hover:bg-gray-700 dark:hover:text-black md:dark:hover:bg-transparent"
                 >
-                  Serviços AI
+                  Vendas
                 </a>
               </li>
               <li>
                 <a
                   href="/dashboard/promocoes"
-                  className="block py-2 px-3 text-gray-50  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  className="block py-2 px-3 text-black  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-black md:p-0 dark:text-black md:dark:hover:text-black dark:hover:bg-gray-700 dark:hover:text-black md:dark:hover:bg-transparent"
                 >
-                  Promoções
+                  Emails
                 </a>
               </li>
-
-              <button onClick={handleLogout} className="text-white">
+              <li>
+                <a
+                  href="/dashboard/promocoes"
+                  className="block py-2 px-3 text-black  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-black md:p-0 dark:text-black md:dark:hover:text-black dark:hover:bg-gray-700 dark:hover:text-black md:dark:hover:bg-transparent"
+                >
+                  Gráficos
+                </a>
+              </li>
+              <button onClick={handleLogout} className="text-black">
                 Logout
               </button>
             </ul>
@@ -128,28 +128,22 @@ const Dashboards = () => {
       </nav>
       <div className="max-w-[800px] mx-auto text-center flex flex-col justify-center">
         <br /> <br />
-        <div className="max-w-2xl mx-auto text-gray-50 p-6">
+        <div className="max-w-2xl mx-auto text-black p-6">
           <h1 className="text-3xl font-bold mb-6 text-center">
-            Bem-vindo ao Dashboard da AI Conectado, {userName}!
+            Bem-vindo ao Dashboard da Ilustra, {userName}!
           </h1>
           <br /> <br />
-          <p className="text-lg mb-4">
-            Navegue pela inteligência artificial de última geração com o Dashboard da AI Conectado. Aqui você terá acesso a uma variedade de recursos e ferramentas para potencializar sua jornada na área da inteligência artificial.
-          </p>
-          <br /> <br /> <br />
+
+          <br /> <br />
           <div className="mb-8">
-            <h2 className="text-xl font-semibold mb-2">Principais Recursos:</h2>
+            <h2 className="text-xl font-semibold mb-2">Atenção:</h2>
+            <p className="text-lg mb-4">
+              Pessoas não autorizadas são extremamente proibidas de acessar este dashboard. Por favor, contate o suporte o mais rápido possível se você acredita que está acessando esta página por engano.
+            </p>
             <br />
-            <ul className="list-disc pl-6">
-              <li>Explore uma vasta coleção de modelos pré-treinados para diferentes tarefas de aprendizado de máquina, desde classificação até geração de texto.</li>
-              <li>Experimente diferentes algoritmos e hiperparâmetros de forma ágil e eficiente, com nossa interface intuitiva de experimentação.</li>
-              <li>Acompanhe o desempenho dos seus modelos em tempo real, com métricas e visualizações claras e detalhadas.</li>
-              <li>Compartilhe projetos, resultados e insights com colegas de equipe de forma rápida e segura, facilitando a colaboração em projetos de inteligência artificial.</li>
-              <li>Conte com o suporte especializado da equipe da AI Conectado sempre que precisar, para orientações, resolução de problemas e muito mais.</li>
-            </ul>
+           
           </div>
           <br /> <br />
-          <p className="text-lg mb-6">Comece já a explorar o futuro da inteligência artificial com o Dashboard da AI Conectado!</p>
         </div>
       </div>
     </div>

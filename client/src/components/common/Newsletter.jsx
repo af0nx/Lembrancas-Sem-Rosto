@@ -12,10 +12,10 @@ const Newsletter = () => {
 
     try {
       const response = await axios.post('http://localhost:5000/subscribe', { email });
-      setMessage(response.data);
+      setMessage(response.data.message); // assuming the backend sends a 'message' field
       setEmail('');
     } catch (error) {
-      setMessage('Erro ao inscrever-se na newsletter.');
+      setMessage(t('errorMessage'));
     }
   };
 
@@ -40,7 +40,9 @@ const Newsletter = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <button type="submit" className="flex-none rounded-md bg-gray-300 px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-zinc-800 hover:text-zinc-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">{t('subscribeButton')}</button>
+            <button type="submit" className="flex-none rounded-md bg-gray-300 px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-zinc-800 hover:text-zinc-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+              {t('subscribeButton')}
+            </button>
           </div>
           <p className="mt-4 text-sm leading-6 text-black">{message}</p>
         </form>
