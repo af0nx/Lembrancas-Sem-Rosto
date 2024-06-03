@@ -1,9 +1,14 @@
+// src/App.jsx
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Home from './components/home/home.js';
-import Login from './components/login/login.js';
-import Dashboard from './components/dashboard/dashboard.js';
-import Register from './components/login/registro.js';
-import Confirm from './components/login/confirm.js';
+import Home from './components/home/home';
+import Login from './components/login/login';
+import Dashboard from './components/dashboard/dashboard';
+import Register from './components/login/registro';
+import Confirm from './components/login/confirm';
+import Products from './components/products/products';
+import ProdutoDetalhe from './components/products/produtoDetalhe';
+import Cart from './components/products/cart';
 
 import './App.css';
 
@@ -15,6 +20,9 @@ function App() {
       <Route path='/register' element={<Register />} />
       <Route path='/dashboard' element={<Dashboard />} />
       <Route path='/confirm/:token' element={<Confirm />} />
+      <Route path='/products' element={<Products />} />
+      <Route path='/products/:name' element={<ProdutoDetalhe />} />
+      <Route path='/cart' element={<Cart />} />
     </Routes>
   );
 }

@@ -5,8 +5,6 @@ import logo from "../images/logo.png";
 
 const Dashboards = () => {
   const navigate = useNavigate();
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [userId, setUserId] = useState(null);
   const [userName, setUserName] = useState("");
   const [loading, setLoading] = useState(true);
 
@@ -15,24 +13,22 @@ const Dashboards = () => {
       const token = localStorage.getItem("token");
       if (token) {
         try {
-          // Decodificar o token JWT manualmente
+          // Decode the JWT token manually
           const tokenParts = token.split(".");
           const payload = JSON.parse(atob(tokenParts[1]));
           const userId = payload.userId;
-          setUserId(userId);
-          setIsAuthenticated(true);
 
-          // Fazer uma chamada à API para obter o nome do usuário pelo ID
+          // Make an API call to get the user's name by ID
           const response = await axios.get(`http://localhost:5000/auth/${userId}/name`);
           const userName = response.data.name;
-          setUserName(userName); // Define o nome do usuário no estado
-          setLoading(false); // Concluir o carregamento
+          setUserName(userName); // Set the user's name in state
+          setLoading(false); // Finish loading
         } catch (error) {
-          console.error("Erro ao decodificar o token ou buscar o nome do usuário", error);
+          console.error("Error decoding token or fetching user name", error);
           navigate("/login");
         }
       } else {
-        // Se não houver token, redirecionar para a página de login
+        // If no token, redirect to login page
         navigate("/login");
       }
     };
@@ -41,25 +37,25 @@ const Dashboards = () => {
   }, [navigate]);
 
   const handleLogout = () => {
-    // Limpar dados de autenticação do usuário (por exemplo, token JWT) do armazenamento local
+    // Clear user authentication data (e.g., JWT token) from local storage
     localStorage.removeItem("token");
-    // Redirecionar o usuário para a página de login
+    // Redirect the user to the login page
     navigate("/login");
   };
 
   if (loading) {
-    return <div>Carregando...</div>;
+    return <div>Loading...</div>;
   }
 
   return (
     <div className="bg-gray-50">
-      <nav className=" bg-gray-50">
+      <nav className="bg-gray-50">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-          <a className="flex items-center space-x-3 rtl:space-x-reverse">
+          <div className="flex items-center space-x-3 rtl:space-x-reverse">
             <a href="/">
               <img src={logo} alt="Logo" className="h-12 mb-4" />
             </a>
-          </a>
+          </div>
           <button
             data-collapse-toggle="navbar-default"
             type="button"
@@ -67,7 +63,7 @@ const Dashboards = () => {
             aria-controls="navbar-default"
             aria-expanded="false"
           >
-            <span className="sr-only">Abrir menu</span>
+            <span className="sr-only">Open menu</span>
             <svg
               className="w-5 h-5"
               aria-hidden="true"
@@ -86,7 +82,6 @@ const Dashboards = () => {
           </button>
           <div className="hidden w-full md:block md:w-auto" id="navbar-default">
             <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
-
               <li>
                 <a
                   href="/dashboard"
@@ -119,9 +114,11 @@ const Dashboards = () => {
                   Gráficos
                 </a>
               </li>
-              <button onClick={handleLogout} className="text-black">
-                Logout
-              </button>
+              <li>
+                <button onClick={handleLogout} className="text-black">
+                  Logout
+                </button>
+              </li>
             </ul>
           </div>
         </div>
@@ -141,7 +138,6 @@ const Dashboards = () => {
               Pessoas não autorizadas são extremamente proibidas de acessar este dashboard. Por favor, contate o suporte o mais rápido possível se você acredita que está acessando esta página por engano.
             </p>
             <br />
-           
           </div>
           <br /> <br />
         </div>
