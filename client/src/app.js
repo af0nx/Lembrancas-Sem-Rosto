@@ -9,7 +9,7 @@ import Confirm from './components/login/confirm';
 import Products from './components/products/products';
 import ProdutoDetalhe from './components/products/produtoDetalhe';
 import Cart from './components/products/cart';
-
+import Checkout from './components/checkout/Checkout';
 import './App.css';
 
 function App() {
@@ -23,6 +23,7 @@ function App() {
       <Route path='/products' element={<Products />} />
       <Route path='/products/:name' element={<ProdutoDetalhe />} />
       <Route path='/cart' element={<Cart />} />
+      <Route path='/checkout' element={<Checkout />} />
     </Routes>
   );
 }

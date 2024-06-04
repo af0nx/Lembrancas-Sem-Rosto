@@ -20,13 +20,19 @@ export const CartProvider = ({ children }) => {
     setCookie('cart', updatedCart, { path: '/' });
   };
 
+  const removeFromCart = (product) => {
+    const updatedCart = cart.filter(item => item.id !== product.id);
+    setCart(updatedCart);
+    setCookie('cart', updatedCart, { path: '/' });
+  };
+
   const clearCart = () => {
     setCart([]);
     setCookie('cart', [], { path: '/' });
   };
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, clearCart }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart }}>
       {children}
     </CartContext.Provider>
   );
