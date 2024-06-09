@@ -37,13 +37,10 @@ const HeadNavbar = () => {
             <img src={logo} alt="Logo" className="h-12 mb-4" />
           </Link>
           <div className="w-full flex justify-center items-center relative">
-            <ul className="flex space-x-8 text-gray-700">
-              <li><Link to="/illustration" className="hover:text-green-700">{t('illustration')}</Link></li>
-              <li><Link to="/products" className="hover:text-green-700">{t('products')}</Link></li>
-            </ul>
+           
             <div className="absolute right-0 flex items-center space-x-4">
               <Link to="/cart" className="relative p-2 bg-transparent focus:outline-none">
-                <svg className="h-6 w-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg className="h-6 w-6 text-gray700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.34 2M7 13h10l4-8H5.34M7 13l-1.12 5.6M7 13h10m0 0l-1.34 6H8.34M9 19h6"></path>
                 </svg>
                 {cart.length > 0 && (
